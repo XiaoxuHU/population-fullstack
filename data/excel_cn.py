@@ -8,11 +8,11 @@ conn = psycopg2.connect(database="china_population",user="postgres",password="hx
 print("Opend database successfully")
 cur = conn.cursor()
 # cur.execute('''CREATE TABLE POPULATION
-#        (ID INT PRIMARY KEY     NOT NULL,
-#         NAME    CHAR(50)    NOT NULL,
-#         VALUE   INT     NOT NULL,
-#         UPPER_REGION CHAR(50) NOT NULL
-#        );''')
+#         (ID INT PRIMARY KEY     NOT NULL,
+#          NAME    CHAR(50)    NOT NULL,
+#          VALUE   INT     NOT NULL,
+#          UPPER_REGION CHAR(50) NOT NULL
+#         );''')
 # print("Table created")
 # conn.commit()
 
