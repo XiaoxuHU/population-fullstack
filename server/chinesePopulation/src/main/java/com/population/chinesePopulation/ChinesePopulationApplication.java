@@ -15,7 +15,7 @@ public class ChinesePopulationApplication {
 	}
 	@GetMapping(value="/china") 
 	public String getValue() {
-		return "Hello,GitHub!";
+		return "Hello,world!";
 	}
 	
 	
