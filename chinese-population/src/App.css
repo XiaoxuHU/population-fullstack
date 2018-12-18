@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+.china {
+    flex:1
+
+}
+
+.province {
+    flex:1
+}
+
+h1 {
+    margin: 10px auto;
+}
