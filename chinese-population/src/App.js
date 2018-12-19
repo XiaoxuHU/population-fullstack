@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import totalData from './Cn-Density';
 import retriveData from './retrive';
 import ChinaMap from './component/chinaMap';
 import ProvinceMap from './component/provinceMap';

@@ -14,7 +14,7 @@ const chinaMap = (props) => {
         tooltip:{
           trigger:'item',
           backgroundColor:'rgba(250,250,250,0.9)',
-          formatter: '{b}<br/>{c}',
+          formatter: '{b}<br/>{c} 人/平方米',
           textStyle:{
             color:'black',
           },

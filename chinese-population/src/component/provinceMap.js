@@ -20,7 +20,13 @@ const provinceMap = (props) => {
         tooltip:{
           trigger:'item',
           backgroundColor:'rgba(250,250,250,0.9)',
-          formatter: '{b}<br/>{c} (p / km2)',
+          formatter: (params) => {
+            if (params.value) {
+              return params.name + '<br />' + params.value + ' 人/平方米';
+            } else {
+              return '<br />' + '无数据';
+            }
+          },
           textStyle:{
             color:'black',
           },
