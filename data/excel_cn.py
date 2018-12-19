@@ -4,17 +4,24 @@ import json
 import math
 import psycopg2
 
-conn = psycopg2.connect(database="china_population",user="postgres",password="hxx199329", host="127.0.0.1", port="5432")
+
+conn = psycopg2.connect(database="china_population",
+                        user="postgres",
+                        password="hxx199329", 
+                        host="127.0.0.1", 
+                        port="5432")
+
+
 print("Opend database successfully")
 cur = conn.cursor()
-# cur.execute('''CREATE TABLE POPULATION
-#         (ID INT PRIMARY KEY     NOT NULL,
-#          NAME    CHAR(50)    NOT NULL,
-#          VALUE   INT     NOT NULL,
-#          UPPER_REGION CHAR(50) NOT NULL
-#         );''')
-# print("Table created")
-# conn.commit()
+cur.execute('''CREATE TABLE POPULATION
+        (ID INT PRIMARY KEY     NOT NULL,
+         NAME    CHAR(50)    NOT NULL,
+         VALUE   INT     NOT NULL,
+         UPPER_REGION CHAR(50) NOT NULL
+        );''')
+print("Table created")
+conn.commit()
 
 
 book = xlrd.open_workbook('population density.xlsx')
