@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import totalData from './Cn-Density';
+import retriveData from './retrive';
 import ChinaMap from './component/chinaMap';
 import ProvinceMap from './component/provinceMap';
 class App extends Component {
@@ -18,29 +19,22 @@ class App extends Component {
   }
   
   componentDidMount = () => {
-    let tempData = totalData.filter( obj => {
-      return obj.upperReigon === '中国';
-    })
-    .map( obj => {
-      return {
-        name: this.abbrName(obj.name),
-        value:obj.value
-      }
-    });
-    this.setState({chinaData: tempData});
+    let receivedData = retriveData('/中国');
+    receivedData.then(data => {
+      return data.map(obj =>{
+          return {
+            'name':this.abbrName(obj.name),
+            'value':obj.value
+          } 
+      })
+    }).then(data => this.setState({chinaData:data}))
   }
+
   onClickHandler = (e) => {
     let name = e.name;
     this.setState({provinceName:name});
-    let tempData = totalData.filter(obj => {
-      return obj.upperReigon.startsWith(name);
-    }).map(obj => {
-      return {
-        name : obj.name,
-        value : obj.value,
-      }
-    });
-    this.setState({provinceData : tempData});
+    let tempData = retriveData('/' + name);
+    tempData.then(data => this.setState({provinceData: data}));
   }
   render() {
     return (
